@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".view.auth.register.RegisterActivity">
 
-    <EditText
+    <com.example.story.customView.EditFieldCustom
         android:id="@+id/password"
         android:layout_width="0dp"
         android:background="@drawable/editfield"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
-    <EditText
+    <com.example.story.customView.EmailEdit
         android:id="@+id/email"
         android:layout_width="0dp"
         android:background="@drawable/editfield"
@@ -61,7 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Button"
+        android:backgroundTint="@color/dicoding_color_btn"
+        android:text="Masuk"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

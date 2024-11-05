@@ -4,8 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.example.story.data.Response.ListStoryItem
 import com.example.story.data.RetrofitClient
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class MainViewModel:ViewModel() {
@@ -23,6 +27,13 @@ class MainViewModel:ViewModel() {
                 e.printStackTrace()
             }
         }
+    }
+
+    fun fetchPagedStories(token: String): Flow<PagingData<ListStoryItem>> {
+        return Pager(
+            config = PagingConfig(pageSize = 10, enablePlaceholders = false),
+            pagingSourceFactory = { StoriesPagingSource(token) } // Implementasikan PagingSource
+        ).flow
     }
 
 }

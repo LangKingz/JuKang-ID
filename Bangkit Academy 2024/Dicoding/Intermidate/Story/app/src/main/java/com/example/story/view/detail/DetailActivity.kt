@@ -2,13 +2,9 @@ package com.example.story.view.detail
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import com.example.story.R
 import com.example.story.data.RetrofitClient
 import com.example.story.databinding.ActivityDetailBinding
 import kotlinx.coroutines.launch
@@ -34,7 +30,6 @@ class DetailActivity : AppCompatActivity() {
     }
 
     fun fetchDetail(id: String, token: String) {
-        // fetch detail
         lifecycleScope.launch {
             try {
                 val response = RetrofitClient.instance.getStorybyId(id, "Bearer $token")

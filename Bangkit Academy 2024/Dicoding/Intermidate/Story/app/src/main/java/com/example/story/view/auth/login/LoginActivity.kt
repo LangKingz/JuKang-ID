@@ -5,11 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.story.R
 import com.example.story.data.Response.Login
 import com.example.story.data.Response.LoginRequest
 import com.example.story.data.RetrofitClient
@@ -29,8 +25,8 @@ class LoginActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.GONE
 
         binding.btnRegis.setOnClickListener {
-            val email = binding.email.text.trim().toString()
-            val password = binding.password.text.trim().toString()
+            val email = binding.email.text?.trim().toString()
+            val password = binding.password.text?.trim().toString()
             LoginPerfom(email, password)
         }
 

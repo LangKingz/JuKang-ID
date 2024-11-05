@@ -22,7 +22,6 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.File
 
 class TambahActivity : AppCompatActivity() {
 
@@ -69,11 +68,15 @@ class TambahActivity : AppCompatActivity() {
         }
 
         binding.uploud.setOnClickListener {
-            addStory()
+            if (currentImage != null) {
+                addStory()
+            } else {
+                showToast("harap isi dulu gambarnya dan deskripsi")
+            }
         }
     }
 
-    fun addStory() {
+    private fun addStory() {
         currentImage?.let { uri->
             val imageFile = UriToFile(uri, this).reduceFileImage()
             val descriptionText = binding.descField.text.toString()
@@ -99,7 +102,7 @@ class TambahActivity : AppCompatActivity() {
                         showToast("Error : ${response.message}")
                     }
                 }catch (e: Exception){
-                    showToast("Error : ${e.message}")
+                    showToast("Error : Silahkan Isi semua")
                     e.printStackTrace()
                 }
             }
@@ -121,15 +124,21 @@ class TambahActivity : AppCompatActivity() {
 
     private fun startCamera() {
         currentImage = getImageUri(this)
-        launcherCamera.launch(currentImage!!)
+        if (currentImage != null) {
+            launcherCamera.launch(currentImage!!)
+        } else {
+            showToast("Image not found")
+        }
     }
 
     private val launcherCamera = registerForActivityResult(
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
-            binding.previewImage.setImageURI(currentImage)
+            showImage(currentImage!!)
         } else {
+//
+            currentImage = null
             showToast("Image not found")
         }
     }
