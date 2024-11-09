@@ -1,18 +1,20 @@
-# Project Name
-JUKANG ID
+# JUKANG ID
+
+JUKANG ID is a platform designed to simplify and improve the user experience in authentication, articles, and payment management. Built using [technologies], it provides essential features for both users and administrators.
 
 ## Description
-This project is designed to solve [problem] by providing [solution]. It is built with [technologies] and offers the following features:
-- Feature 1: Authentication
-- Feature 2: Articles 
-- Feature 3: Payment
+
+This project aims to solve [problem] by providing an efficient solution for [solution]. The system is built with a focus on ease of use, security, and scalability.
 
 ## Features
-- Feature 1: Description of feature 1
-- Feature 2: Description of feature 2
-- Feature 3: Description of feature 3
+
+- **Authentication**: Secure login and user management.
+- **Articles**: Manage and display articles for users.
+- **Payment**: Handle secure payment transactions for users.
 
 ## Installation
+
+To set up this project locally, follow the steps below:
 
 1. Clone the repository:
    ```bash
