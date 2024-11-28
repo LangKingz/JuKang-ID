@@ -19,3 +19,7 @@ To set up this project locally, follow the steps below:
 1. Clone the repository:
    ```bash
    git clone https://github.com/LangKingz/JuKang-ID---Capstone.git
+
+## Note
+1. We Actually Update MD on Private Repository because data privacy
+2. This Repository for final push
